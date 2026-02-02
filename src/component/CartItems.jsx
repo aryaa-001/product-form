@@ -10,9 +10,11 @@ const CartItems = ({ elem }) => {
   });
 
   return (
-    <div className="relative flex items-center gap-5 p-4 rounded-xl
+    <div
+      className="relative flex items-center gap-5 p-4 rounded-xl
                     bg-white/90 backdrop-blur border border-indigo-100
-                    shadow-sm hover:shadow-md transition">
+                    shadow-sm hover:shadow-md transition"
+    >
       <button
         onClick={() => deleteCard(elem.id)}
         className="absolute top-3 right-3 text-gray-400 hover:text-red-600
@@ -30,12 +32,8 @@ const CartItems = ({ elem }) => {
       </div>
 
       <div className="flex flex-col flex-1 gap-1">
-        <h2 className="font-medium text-gray-800 line-clamp-1">
-          {elem.name}
-        </h2>
-        <p className="text-indigo-600 font-semibold">
-          {price}
-        </p>
+        <h2 className="font-medium text-gray-800 line-clamp-1">{elem.name}</h2>
+        <p className="text-indigo-600 font-semibold">{price}</p>
       </div>
 
       <div className="flex items-center gap-3">
@@ -48,9 +46,7 @@ const CartItems = ({ elem }) => {
           −
         </button>
 
-        <span className="min-w-6 text-center font-medium">
-          {elem.quantity}
-        </span>
+        <span className="min-w-6 text-center font-medium">{elem.quantity}</span>
 
         <button
           onClick={() => increaseQuantity(elem.id)}

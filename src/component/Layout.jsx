@@ -15,12 +15,14 @@ const Layout = () => {
       </aside>
 
       <main className="flex-1 p-6 overflow-hidden">
-  <div className="max-w-7xl mx-auto h-full
+        <div
+          className="max-w-7xl mx-auto h-full
                   bg-white/90 backdrop-blur rounded-2xl
-                  shadow-xl border border-indigo-100 p-6">
-    <Outlet />
-  </div>
-</main>
+                  shadow-xl border border-indigo-100 p-6"
+        >
+          <Outlet />
+        </div>
+      </main>
     </div>
   );
 };

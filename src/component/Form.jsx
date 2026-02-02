@@ -16,12 +16,16 @@ const Form = () => {
   }
 
   return (
-    <div className="h-full flex items-center justify-center
+    <div
+      className="h-full flex items-center justify-center
     bg-linear-to-br from-indigo-50 via-purple-50 to-pink-50
-                    overflow-hidden px-4">
-      <div className="w-full max-w-3xl rounded-2xl
+                    overflow-hidden px-4"
+    >
+      <div
+        className="w-full max-w-3xl rounded-2xl
                       bg-white/90 backdrop-blur
-                      border border-indigo-100 shadow-xl">
+                      border border-indigo-100 shadow-xl"
+      >
         <div className="px-6 py-5 border-b border-indigo-100">
           <h1 className="text-2xl font-semibold text-indigo-700">
             Add New Product
