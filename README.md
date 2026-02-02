@@ -1,16 +1,35 @@
-# React + Vite
+# React Cart Practice Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A small React practice project that implements a basic product → cart → order flow.
 
-Currently, two official plugins are available:
+## Features
+- Add dummy products using a form
+- Display products on a product page
+- Add products to cart
+- Increase / decrease product quantity
+- Calculate total cart price
+- Place order and show a thank-you page
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+- React
+- Context API
+- React Router
 
-## React Compiler
+## What I Learned
+- Managing shared state using Context API
+- Structuring cart logic to avoid prop drilling
+- Handling derived state like total price
+- Basic client-side routing with React Router
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Limitations
+- No backend or database
+- Dummy product data
+- No authentication or payment integration
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## How to Run Locally
+1. Clone the repository  
+   `git clone https://github.com/your-username/your-repo.git`
+2. Install dependencies  
+   `npm install`
+3. Start the development server  
+   `npm start`
