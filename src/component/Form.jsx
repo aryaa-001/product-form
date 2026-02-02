@@ -100,6 +100,7 @@ const Form = () => {
             <option value="gym">Fitness</option>
             <option value="study">Study</option>
             <option value="beauty">Beauty</option>
+            <option value="beauty">Gardening</option>
           </select>
         </div>
 
