@@ -5,33 +5,32 @@ import { useProducts } from "../context/productContext";
 const Navigation = () => {
   const { cartNumber } = useProducts();
 
+  const baseClasses =
+    "flex items-center justify-between px-4 py-2 rounded-lg text-sm font-medium transition";
+
   return (
-    <div className="flex flex-col gap-3">
+    <nav className="flex flex-col gap-2">
       <NavLink
         to="/"
         className={({ isActive }) =>
-          `px-4 py-2 text-sm font-medium rounded-md
-       ${
-         isActive
-           ? "bg-blue-700 text-white"
-           : "bg-blue-600 text-white hover:bg-blue-700"
-       }
-       focus:outline-none focus:ring-2 focus:ring-blue-400`
+          `${baseClasses} ${
+            isActive
+              ? "bg-white/20 text-white"
+              : "text-indigo-100 hover:bg-white/10 hover:text-white"
+          }`
         }
       >
-        Create form
+        Create Product
       </NavLink>
 
       <NavLink
         to="/products"
         className={({ isActive }) =>
-          `px-4 py-2 text-sm font-medium rounded-md border
-       ${
-         isActive
-           ? "bg-blue-100 border-blue-400 text-blue-800"
-           : "bg-blue-50 border-blue-300 text-blue-700 hover:bg-blue-100"
-       }
-       focus:outline-none focus:ring-2 focus:ring-blue-300`
+          `${baseClasses} ${
+            isActive
+              ? "bg-white/20 text-white"
+              : "text-indigo-100 hover:bg-white/10 hover:text-white"
+          }`
         }
       >
         Products
@@ -40,28 +39,28 @@ const Navigation = () => {
       <NavLink
         to="/cart"
         className={({ isActive }) =>
-          `relative px-4 py-2 text-sm font-medium rounded-md border
-     ${
-       isActive
-         ? "bg-blue-100 border-blue-400 text-blue-800"
-         : "bg-blue-50 border-blue-300 text-blue-700 hover:bg-blue-100"
-     }
-     focus:outline-none focus:ring-2 focus:ring-blue-300`
+          `${baseClasses} ${
+            isActive
+              ? "bg-white/20 text-white"
+              : "text-indigo-100 hover:bg-white/10 hover:text-white"
+          }`
         }
       >
-        Cart
-        <span
-          className="absolute -top-1 -right-1 
-               min-w-4.5 h-4.5
-               flex items-center justify-center
-               text-[11px] font-semibold
-               rounded-full
-               bg-red-600 text-white"
-        >
-          {cartNumber}
-        </span>
+        <span>Cart</span>
+
+        {cartNumber > 0 && (
+          <span
+            className="ml-2 min-w-5 h-5 px-1
+                       flex items-center justify-center
+                       text-[11px] font-semibold
+                       rounded-full
+                       bg-pink-500 text-white"
+          >
+            {cartNumber}
+          </span>
+        )}
       </NavLink>
-    </div>
+    </nav>
   );
 };
 

@@ -4,42 +4,66 @@ import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const { items, totalSum, cartNumber } = useProducts();
-
   const navigate = useNavigate();
 
   return (
-    <div className="h-full w-full pt-7 flex ">
-      
-      <div className=" h-full px-5 flex flex-col gap-5 overflow-y-auto scroll-smooth w-[70%]">
-      <h1 className="text-2xl fixed -top-1 self-center h-13 bg-[rgb(239,239,239)] pt-3 text-center z-99 w-190 font-sans font-medium  mb-2">Shopping cart</h1>
-        {items.map((elem) => {
-          return <CartItems key={elem.id} elem={elem} />;
-        })}
+    <div className="flex gap-8">
+      <div className="flex-1 flex flex-col gap-6">
+        <h1 className="text-2xl font-medium unde text-indigo-700">
+          Checkout
+        </h1>
+
+        {items.length === 0 ? (
+          <div
+            className="h-64 flex items-center justify-center rounded-xl
+                          border border-dashed text-gray-500"
+          >
+            Your cart is empty
+          </div>
+        ) : (
+          <div className="flex flex-col gap-4">
+            {items.map((elem) => (
+              <CartItems key={elem.id} elem={elem} />
+            ))}
+          </div>
+        )}
       </div>
 
-      <div className="0 p-5 border-2 rounded-xl h-full w-[30%]">
-        <div className="h-60 w-full flex gap-4 flex-col p-3 rounded-2xl bg-white">
-          <h2 className="border-b-2 self-center text-[#939191]">
-            Price details
+      <div className="w-80">
+        <div
+          className="sticky top-6 rounded-2xl border border-indigo-100
+                        bg-white/90 backdrop-blur shadow-lg p-6"
+        >
+          <h2 className="text-lg font-medium text-gray-800 border-b pb-3 mb-4">
+            Price Details
           </h2>
-          <h2 className="text-[#646262] font-medium">
-            Number of items{" "}
-            <span className="ml-20 font-medium">{cartNumber}</span>
-          </h2>
-          <h2 className="text-[#646262] font-medium">
-            Delivery charges{" "}
-            <span className="ml-20 font-medium text-green-600">Free</span>
-          </h2>
-          <h2 className="text-black/90 font-medium ">
-            Total Amount <span className="ml-17 font-medium">{totalSum} /-</span>
-          </h2>
-          <button
-            onClick={() => {
-              return navigate("/summary");
-            }}
-            className="bg-blue-600 text-white hover:bg-blue-700 w-[50%] py-2 rounded-xl mx-auto mt-3 active:scale-95"
+
+          <div className="flex justify-between text-sm text-gray-600 mb-3">
+            <span>Items</span>
+            <span>{cartNumber}</span>
+          </div>
+
+          <div className="flex justify-between text-sm text-gray-600 mb-3">
+            <span>Delivery</span>
+            <span className="text-green-600">Free</span>
+          </div>
+
+          <div
+            className="flex justify-between font-semibold text-gray-900
+                          border-t pt-3 mt-3"
           >
-            Place order
+            <span>Total</span>
+            <span>{totalSum}</span>
+          </div>
+
+          <button
+            onClick={() => navigate("/summary")}
+            className="mt-6 w-full py-3 rounded-xl text-sm font-medium text-white
+            bg-linear-to-br from-indigo-600 to-purple-600
+                       hover:from-indigo-700 hover:to-purple-700
+                       active:scale-95 transition"
+          >
+            Place Order
           </button>
         </div>
       </div>

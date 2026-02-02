@@ -5,10 +5,9 @@ import { useNavigate } from "react-router-dom";
 
 const Form = () => {
   const { setProductData } = useProducts();
-
   const navigate = useNavigate();
-
   const { register, handleSubmit, reset } = useForm();
+
   function onSubmit(data) {
     const newData = { ...data, id: Date.now() };
     setProductData((prev) => [...prev, newData]);
@@ -16,103 +15,114 @@ const Form = () => {
     navigate("/products");
   }
 
-
   return (
-    <div className="max-w-4xl mx-auto mt-8 p-6 bg-white rounded-lg border border-gray-200">
-      <h1 className="text-center font-bold text-2xl mb-6 underline font-mono">
-        Create Your Product Here
-      </h1>
-
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="space-y-5 flex flex-col"
-      >
-        <div className="flex flex-col gap-1">
-          
-          <label
-            htmlFor="imageUrl"
-            className="text-sm font-medium text-gray-700"
-          >
-            Image URL
-          </label>
-          <input
-            {...register("imageUrl")}
-            id="imageUrl"
-            type="url"
-            placeholder="https://example.com/image.jpg"
-            className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md
-                       focus:outline-none focus:ring-2 focus:ring-blue-400"
-          />
+    <div className="h-full flex items-center justify-center
+    bg-linear-to-br from-indigo-50 via-purple-50 to-pink-50
+                    overflow-hidden px-4">
+      <div className="w-full max-w-3xl rounded-2xl
+                      bg-white/90 backdrop-blur
+                      border border-indigo-100 shadow-xl">
+        <div className="px-6 py-5 border-b border-indigo-100">
+          <h1 className="text-2xl font-semibold text-indigo-700">
+            Add New Product
+          </h1>
+          <p className="text-sm text-gray-500 mt-1">
+            Create a product to display in your store
+          </p>
         </div>
 
-        <div className="flex flex-col gap-1">
-          <label
-            htmlFor="productName"
-            className="text-sm font-medium text-gray-700"
-          >
-            Product Name
-          </label>
-          <input
-            {...register("name")}
-            id="productName"
-            type="text"
-            placeholder="Enter product name"
-            className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md
-                       focus:outline-none focus:ring-2 focus:ring-blue-400"
-          />
-        </div>
-
-        <div className="flex flex-col gap-1">
-          <label htmlFor="price" className="text-sm font-medium text-gray-700">
-            Price
-          </label>
-          <input
-            {...register("price")}
-            id="price"
-            type="text"
-            placeholder="Enter price"
-            className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md
-                       focus:outline-none focus:ring-2 focus:ring-blue-400"
-          />
-        </div>
-
-        <div className="flex flex-col gap-1">
-          <label
-            htmlFor="category"
-            className="text-sm font-medium text-gray-700"
-          >
-            Category
-          </label>
-          <select
-            {...register("category")}
-            id="category"
-            defaultValue=""
-            className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md
-                       bg-white text-gray-700
-                       focus:outline-none focus:ring-2 focus:ring-blue-400"
-          >
-            <option value="" disabled>
-              Select category
-            </option>
-            <option value="electronics">Electronics</option>
-            <option value="fashion">Fashion</option>
-            <option value="home">Home</option>
-            <option value="gym">Fitness</option>
-            <option value="study">Study</option>
-            <option value="beauty">Beauty</option>
-            <option value="beauty">Gardening</option>
-          </select>
-        </div>
-
-        <button
-          type="submit"
-          className="w-1/2 mx-auto mt-4 py-2 text-sm font-medium rounded-md
-                     bg-blue-600 text-white hover:bg-blue-700
-                     focus:outline-none focus:ring-2 focus:ring-blue-400"
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="p-6 grid grid-cols-1 md:grid-cols-2 gap-5"
         >
-          Add Product
-        </button>
-      </form>
+          <div className="col-span-2">
+            <label className="text-sm font-medium text-gray-700">
+              Product Image URL
+            </label>
+            <input
+              {...register("imageUrl")}
+              type="url"
+              placeholder="https://example.com/product.jpg"
+              className="mt-1 w-full rounded-lg border placeholder:opacity-55 border-gray-300 px-3 py-2
+                         focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200
+                         outline-none transition"
+            />
+          </div>
+
+          <div className="col-span-2">
+            <label className="text-sm font-medium text-gray-700">
+              Product Name
+            </label>
+            <input
+              {...register("name")}
+              type="text"
+              placeholder="Wireless Headphones"
+              className="mt-1 w-full rounded-lg border placeholder:opacity-55 border-gray-300 px-3 py-2
+                         focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200
+                         outline-none transition"
+            />
+          </div>
+
+          <div>
+            <label className="text-sm font-medium text-gray-700">
+              Price (₹)
+            </label>
+            <input
+              {...register("price")}
+              type="text"
+              placeholder="2999"
+              className="mt-1 w-full rounded-lg border placeholder:opacity-55 border-gray-300 px-3 py-2
+                         focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200
+                         outline-none transition"
+            />
+          </div>
+
+          <div>
+            <label className="text-sm font-medium text-gray-700">
+              Category
+            </label>
+            <select
+              {...register("category")}
+              defaultValue=""
+              className="mt-1 w-full rounded-lg border border-gray-300 bg-white px-3 py-2
+                         focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200
+                         outline-none transition"
+            >
+              <option value="" disabled>
+                Select category
+              </option>
+              <option value="electronics">Electronics</option>
+              <option value="fashion">Fashion</option>
+              <option value="home">Home</option>
+              <option value="fitness">Fitness</option>
+              <option value="study">Study</option>
+              <option value="beauty">Beauty</option>
+              <option value="gardening">Gardening</option>
+            </select>
+          </div>
+
+          <div className="col-span-2 flex justify-end gap-3 pt-4 border-t border-indigo-100">
+            <button
+              type="button"
+              onClick={() => navigate("/products")}
+              className="px-5 py-2 rounded-lg border border-gray-300 text-sm
+                         hover:bg-gray-100 transition"
+            >
+              Cancel
+            </button>
+
+            <button
+              type="submit"
+              className="px-6 py-2 rounded-lg text-sm font-medium text-white
+              bg-linear-to-r from-indigo-600 to-purple-600
+                         hover:from-indigo-700 hover:to-purple-700
+                         active:scale-95 transition"
+            >
+              Add Product
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

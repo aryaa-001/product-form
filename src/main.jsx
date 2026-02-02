@@ -7,6 +7,7 @@ import { ProductProvider } from "./context/productContext";
 import AllProduct from "./component/AllProduct";
 import Cart from "./component/Cart";
 import Purchased from "./component/Purchased";
+import Wishlist from "./component/Wishlist";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
       { index: true, element: <Form /> },
       { path: "products", element: <AllProduct /> },
       { path: "cart", element: <Cart /> },
+      { path: "wishlist", element: <Wishlist /> }
     ],
   },
   { path: "summary", element: <Purchased /> },

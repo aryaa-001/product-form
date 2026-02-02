@@ -11,6 +11,28 @@ export function ProductProvider({ children }) {
     return JSON.parse(localStorage.getItem("item")) || [];
   });
 
+  const [wishlist, setWishlist] = useState(() => {
+    return JSON.parse(localStorage.getItem("wishlist")) || [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+  }, [wishlist]);
+
+  const wishlistAdded = (elem) => {
+    setWishlist((prev) => {
+      const alreadyExist = prev.some((e) => e.id === elem.id);
+
+      if (alreadyExist) return prev.filter((e) => e.id !== elem.id);
+
+      return [...prev, { ...elem }];
+    });
+  };
+
+  const removeFromWishlist = (id) => {
+    setWishlist((prev) => prev.filter((e) => e.id !== id));
+  };
+
   const itemAdded = (elem) => {
     setItems((prev) => {
       const alreadyExist = prev.some((e) => e.id === elem.id);
@@ -52,9 +74,9 @@ export function ProductProvider({ children }) {
     sum = sum + Number(elem.price) * elem.quantity;
     totalSum = sum.toLocaleString("en-IN", {
       style: "currency",
-      currency: "INR"
+      currency: "INR",
     });
-    return totalSum
+    return totalSum;
   });
 
   function increaseQuantity(id) {
@@ -94,6 +116,10 @@ export function ProductProvider({ children }) {
         increaseQuantity,
         decreaseQuantity,
         deleteProduct,
+        wishlist,
+        setWishlist,
+        wishlistAdded,
+        removeFromWishlist,
       }}
     >
       {children}
