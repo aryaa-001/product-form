@@ -1,7 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useProducts } from "../context/productContext";
-import tick from "../assets/tick.png";
+import Lottie from "lottie-react";
+import successAnimation from "../assets/success.json";
 
 const Purchased = () => {
   const { items, totalSum } = useProducts();
@@ -22,7 +23,11 @@ const Purchased = () => {
           className="w-20 h-20 rounded-full bg-green-100
                         flex items-center justify-center"
         >
-          <img src={tick} alt="success" className="w-10 h-10" />
+          <Lottie
+            animationData={successAnimation}
+            loop={false}
+            className="w-20 h-20"
+          />
         </div>
 
         <h1 className="text-3xl font-semibold text-gray-800 text-center">
