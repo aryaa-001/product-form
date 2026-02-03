@@ -7,7 +7,7 @@ const Layout = () => {
     <div className="min-h-screen flex bg-linear-to-br from-indigo-50 via-purple-50 to-pink-50">
       <aside className="w-64 bg-linear-to-b from-indigo-700 to-purple-700 text-white shadow-xl">
         <div className="p-6">
-          <h1 className="text-2xl font-semibold tracking-tight mb-10">
+          <h1 className="text-2xl cursor-default font-semibold tracking-tight mb-10">
             Store Admin
           </h1>
           <Navigation />

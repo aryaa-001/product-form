@@ -8,9 +8,9 @@ const Wishlist = () => {
   return (
     <div className="flex flex-col gap-6">
       <div>
-        <h1 className="text-2xl font-semibold text-indigo-700">Wishlist</h1>
-        <p className="text-sm text-gray-500 mt-1">
-          Products you’ve saved for later
+        <h1 className="text-2xl cursor-default font-semibold text-indigo-700">Wishlist</h1>
+        <p className="text-sm cursor-default text-gray-500 mt-1">
+          Products you've saved for later
         </p>
       </div>
 
@@ -19,7 +19,7 @@ const Wishlist = () => {
           className="h-64 flex flex-col items-center justify-center
                         rounded-xl border border-dashed text-gray-500"
         >
-          <i className="ri-heart-line text-4xl mb-2"></i>
+          <i className="ri-heart-line cursor-default text-4xl mb-2"></i>
           <p>Your wishlist is empty</p>
         </div>
       ) : (

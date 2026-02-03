@@ -27,10 +27,10 @@ const Form = () => {
                       border border-indigo-100 shadow-xl"
       >
         <div className="px-6 py-5 border-b border-indigo-100">
-          <h1 className="text-2xl font-semibold text-indigo-700">
+          <h1 className="text-2xl cursor-default font-semibold text-indigo-700">
             Add New Product
           </h1>
-          <p className="text-sm text-gray-500 mt-1">
+          <p className="text-sm cursor-default text-gray-500 mt-1">
             Create a product to display in your store
           </p>
         </div>
@@ -109,7 +109,7 @@ const Form = () => {
             <button
               type="button"
               onClick={() => navigate("/products")}
-              className="px-5 py-2 rounded-lg border border-gray-300 text-sm
+              className="px-5 py-2 rounded-lg cursor-pointer border border-gray-300 text-sm
                          hover:bg-gray-100 transition"
             >
               Cancel
@@ -117,7 +117,7 @@ const Form = () => {
 
             <button
               type="submit"
-              className="px-6 py-2 rounded-lg text-sm font-medium text-white
+              className="px-6 py-2 cursor-pointer rounded-lg text-sm font-medium text-white
               bg-linear-to-r from-indigo-600 to-purple-600
                          hover:from-indigo-700 hover:to-purple-700
                          active:scale-95 transition"

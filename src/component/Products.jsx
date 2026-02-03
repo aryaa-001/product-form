@@ -29,7 +29,7 @@ const Products = ({ elem }) => {
 
         <button
           onClick={() => deleteProduct(elem.id)}
-          className="absolute top-2 right-2 w-6 h-6 rounded-full
+          className="absolute top-2 right-2 w-6 h-6 cursor-pointer rounded-full
                      bg-red-500 text-white text-xs font-bold
                      flex items-center justify-center
                      hover:bg-red-600 active:scale-95"
@@ -49,16 +49,16 @@ const Products = ({ elem }) => {
       </div>
 
       <div className="p-4 flex flex-col gap-2">
-        <h3 className="font-medium text-gray-800 line-clamp-1">{elem.name}</h3>
+        <h3 className="font-medium cursor-default text-gray-800 line-clamp-1">{elem.name}</h3>
 
-        <p className="text-indigo-600 font-semibold">{priceNumber}</p>
+        <p className="text-indigo-600 cursor-default font-semibold">{priceNumber}</p>
 
-        <p className="text-xs text-gray-500 capitalize">{elem.category}</p>
+        <p className="text-xs cursor-default text-gray-500 capitalize">{elem.category}</p>
 
         <button
           onClick={() => itemAdded(elem)}
           disabled={alreadyInCart}
-          className={`mt-3 w-full py-2 rounded-lg text-sm font-medium transition ${
+          className={`mt-3 w-full py-2 rounded-lg cursor-pointer text-sm font-medium transition ${
             alreadyInCart
               ? "bg-gray-300 text-gray-600 cursor-not-allowed"
               : "bg-linear-to-r from-indigo-600 to-purple-600 text-white hover:from-indigo-700 hover:to-purple-700 active:scale-95"

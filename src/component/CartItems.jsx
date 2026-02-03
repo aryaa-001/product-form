@@ -17,7 +17,7 @@ const CartItems = ({ elem }) => {
     >
       <button
         onClick={() => deleteCard(elem.id)}
-        className="absolute top-3 right-3 text-gray-400 hover:text-red-600
+        className="absolute top-3 cursor-pointer right-3 text-gray-400 hover:text-red-600
                    text-sm font-bold transition"
       >
         ✕
@@ -32,25 +32,25 @@ const CartItems = ({ elem }) => {
       </div>
 
       <div className="flex flex-col flex-1 gap-1">
-        <h2 className="font-medium text-gray-800 line-clamp-1">{elem.name}</h2>
-        <p className="text-indigo-600 font-semibold">{price}</p>
+        <h2 className="font-medium text-gray-800 cursor-default line-clamp-1">{elem.name}</h2>
+        <p className="text-indigo-600 cursor-default font-semibold">{price}</p>
       </div>
 
       <div className="flex items-center gap-3">
         <button
           onClick={() => decreaseQuantity(elem.id)}
-          className="w-8 h-8 rounded-lg border border-gray-300
+          className="w-8 h-8 rounded-lg cursor-pointer border border-gray-300
                      text-lg font-medium hover:bg-gray-100
                      active:scale-95 transition"
         >
           −
         </button>
 
-        <span className="min-w-6 text-center font-medium">{elem.quantity}</span>
+        <span className="min-w-6 cursor-default text-center font-medium">{elem.quantity}</span>
 
         <button
           onClick={() => increaseQuantity(elem.id)}
-          className="w-8 h-8 rounded-lg border border-gray-300
+          className="w-8 h-8 rounded-lg cursor-pointer border border-gray-300
                      text-lg font-medium hover:bg-gray-100
                      active:scale-95 transition"
         >

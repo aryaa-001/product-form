@@ -33,6 +33,10 @@ export function ProductProvider({ children }) {
     setWishlist((prev) => prev.filter((e) => e.id !== id));
   };
 
+  let itemsInCart;
+  if (items.length === 0) (itemsInCart = false);
+    else (itemsInCart = true);
+
   const itemAdded = (elem) => {
     setItems((prev) => {
       const alreadyExist = prev.some((e) => e.id === elem.id);
@@ -120,6 +124,7 @@ export function ProductProvider({ children }) {
         setWishlist,
         wishlistAdded,
         removeFromWishlist,
+        itemsInCart,
       }}
     >
       {children}
